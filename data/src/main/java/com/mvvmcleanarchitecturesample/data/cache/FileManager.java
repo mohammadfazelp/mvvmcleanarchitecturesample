@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015 Fernando Cejas Open Source Project
+ * Copyright (C) 2015 Fernando Cejas Open SourceEntity Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -110,9 +110,9 @@ public class FileManager {
   }
 
   /**
-   * Write a value to a user preferences file.
+   * Write a value to a feed preferences file.
    *
-   * @param context {@link android.content.Context} to retrieve android user preferences.
+   * @param context {@link android.content.Context} to retrieve android feed preferences.
    * @param preferenceFileName A file name reprensenting where data will be written to.
    * @param key A string for the key that will be used to retrieve the value in the future.
    * @param value A long representing the value to be inserted.
@@ -128,9 +128,9 @@ public class FileManager {
   }
 
   /**
-   * Get a value from a user preferences file.
+   * Get a value from a feed preferences file.
    *
-   * @param context {@link android.content.Context} to retrieve android user preferences.
+   * @param context {@link android.content.Context} to retrieve android feed preferences.
    * @param preferenceFileName A file name representing where data will be get from.
    * @param key A key that will be used to retrieve the value from the preference file.
    * @return A long representing the value retrieved from the preferences file.

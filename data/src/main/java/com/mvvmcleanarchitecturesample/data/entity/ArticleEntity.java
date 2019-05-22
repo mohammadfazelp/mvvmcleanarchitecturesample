@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
-public class Article implements Parcelable {
+public class ArticleEntity implements Parcelable {
 
     private static int increment = 0;
 
@@ -17,9 +17,9 @@ public class Article implements Parcelable {
     private String url;
     private String urlToImage;
     private String publishedAt;
-    private Source source;
+    private SourceEntity sourceEntity;
 
-    public Article() {
+    public ArticleEntity() {
         id = ++increment;
     }
 
@@ -27,7 +27,7 @@ public class Article implements Parcelable {
         return (long) ((Math.random() * ((100000) + 1)) + 0);
     }
 
-    protected Article(Parcel in) {
+    protected ArticleEntity(Parcel in) {
         id = getRandomNumber();
         author = in.readString();
         title = in.readString();
@@ -35,7 +35,7 @@ public class Article implements Parcelable {
         url = in.readString();
         urlToImage = in.readString();
         publishedAt = in.readString();
-        source = in.readParcelable(Source.class.getClassLoader());
+        sourceEntity = in.readParcelable(SourceEntity.class.getClassLoader());
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Article implements Parcelable {
         dest.writeString(url);
         dest.writeString(urlToImage);
         dest.writeString(publishedAt);
-        dest.writeParcelable(source, flags);
+        dest.writeParcelable(sourceEntity, flags);
     }
 
     @Override
@@ -55,15 +55,15 @@ public class Article implements Parcelable {
         return 0;
     }
 
-    public static final Parcelable.Creator<Article> CREATOR = new Creator<Article>() {
+    public static final Parcelable.Creator<ArticleEntity> CREATOR = new Creator<ArticleEntity>() {
         @Override
-        public Article createFromParcel(Parcel in) {
-            return new Article(in);
+        public ArticleEntity createFromParcel(Parcel in) {
+            return new ArticleEntity(in);
         }
 
         @Override
-        public Article[] newArray(int size) {
-            return new Article[size];
+        public ArticleEntity[] newArray(int size) {
+            return new ArticleEntity[size];
         }
     };
 
@@ -122,23 +122,23 @@ public class Article implements Parcelable {
         this.publishedAt = publishedAt;
     }
 
-    public Source getSource() {
-        return source;
+    public SourceEntity getSourceEntity() {
+        return sourceEntity;
     }
 
-    public void setSource(Source source) {
-        this.source = source;
+    public void setSourceEntity(SourceEntity sourceEntity) {
+        this.sourceEntity = sourceEntity;
     }
 
 
-    public static DiffUtil.ItemCallback<Article> DIFF_CALLBACK = new DiffUtil.ItemCallback<Article>() {
+    public static DiffUtil.ItemCallback<ArticleEntity> DIFF_CALLBACK = new DiffUtil.ItemCallback<ArticleEntity>() {
         @Override
-        public boolean areItemsTheSame(@NonNull Article oldItem, @NonNull Article newItem) {
+        public boolean areItemsTheSame(@NonNull ArticleEntity oldItem, @NonNull ArticleEntity newItem) {
             return oldItem.id == newItem.id;
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull Article oldItem, @NonNull Article newItem) {
+        public boolean areContentsTheSame(@NonNull ArticleEntity oldItem, @NonNull ArticleEntity newItem) {
             return oldItem.equals(newItem);
         }
     };
@@ -148,8 +148,8 @@ public class Article implements Parcelable {
         if (obj == this)
             return true;
 
-        Article article = (Article) obj;
-        return article.id == this.id;
+        ArticleEntity articleEntity = (ArticleEntity) obj;
+        return articleEntity.id == this.id;
     }
 }
 

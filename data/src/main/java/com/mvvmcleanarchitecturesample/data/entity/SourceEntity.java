@@ -5,12 +5,12 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Source implements Parcelable {
+public class SourceEntity implements Parcelable {
 
     @SerializedName("name")
     private String name;
 
-    protected Source(Parcel in) {
+    protected SourceEntity(Parcel in) {
         name = in.readString();
     }
 
@@ -24,15 +24,15 @@ public class Source implements Parcelable {
         return 0;
     }
 
-    public static final Parcelable.Creator<Source> CREATOR = new Parcelable.Creator<Source>() {
+    public static final Parcelable.Creator<SourceEntity> CREATOR = new Parcelable.Creator<SourceEntity>() {
         @Override
-        public Source createFromParcel(Parcel in) {
-            return new Source(in);
+        public SourceEntity createFromParcel(Parcel in) {
+            return new SourceEntity(in);
         }
 
         @Override
-        public Source[] newArray(int size) {
-            return new Source[size];
+        public SourceEntity[] newArray(int size) {
+            return new SourceEntity[size];
         }
     };
 

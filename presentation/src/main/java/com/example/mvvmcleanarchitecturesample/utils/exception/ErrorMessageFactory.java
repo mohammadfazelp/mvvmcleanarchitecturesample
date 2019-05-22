@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.example.mvvmcleanarchitecturesample.R;
 import com.mvvmcleanarchitecturesample.data.exception.NetworkConnectionException;
-import com.mvvmcleanarchitecturesample.data.exception.UserNotFoundException;
+import com.mvvmcleanarchitecturesample.data.exception.FeedNotFoundException;
 
 /**
  * Factory used to create error messages from an Exception as a condition.
@@ -27,7 +27,7 @@ public class ErrorMessageFactory {
 
         if (exception instanceof NetworkConnectionException) {
             message = context.getString(R.string.exception_message_no_connection);
-        } else if (exception instanceof UserNotFoundException) {
+        } else if (exception instanceof FeedNotFoundException) {
             message = context.getString(R.string.exception_message_user_not_found);
         }
 

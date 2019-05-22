@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Feed implements Parcelable {
+public class FeedEntity implements Parcelable {
 
     @SerializedName("id")
     private transient long id;
@@ -15,17 +15,17 @@ public class Feed implements Parcelable {
     private String status;
     @SerializedName("totalResults")
     private long totalResults;
-    @SerializedName("articles")
-    private List<Article> articles;
+    @SerializedName("articleEntities")
+    private List<ArticleEntity> articleEntities;
 
     long getRandomNumber() {
         return (long) ((Math.random() * ((100000) + 1)) + 0);
     }
-    protected Feed(Parcel in) {
+    protected FeedEntity(Parcel in) {
         id = getRandomNumber();
         status = in.readString();
         totalResults = in.readLong();
-        articles = in.createTypedArrayList(Article.CREATOR);
+        articleEntities = in.createTypedArrayList(ArticleEntity.CREATOR);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Feed implements Parcelable {
         dest.writeLong(id);
         dest.writeString(status);
         dest.writeLong(totalResults);
-        dest.writeTypedList(articles);
+        dest.writeTypedList(articleEntities);
     }
 
     @Override
@@ -41,15 +41,15 @@ public class Feed implements Parcelable {
         return 0;
     }
 
-    public static final Parcelable.Creator<Feed> CREATOR = new Creator<Feed>() {
+    public static final Parcelable.Creator<FeedEntity> CREATOR = new Creator<FeedEntity>() {
         @Override
-        public Feed createFromParcel(Parcel in) {
-            return new Feed(in);
+        public FeedEntity createFromParcel(Parcel in) {
+            return new FeedEntity(in);
         }
 
         @Override
-        public Feed[] newArray(int size) {
-            return new Feed[size];
+        public FeedEntity[] newArray(int size) {
+            return new FeedEntity[size];
         }
     };
 
@@ -78,12 +78,12 @@ public class Feed implements Parcelable {
         this.totalResults = totalResults;
     }
 
-    public List<Article> getArticles() {
-        return articles;
+    public List<ArticleEntity> getArticleEntities() {
+        return articleEntities;
     }
 
-    public void setArticles(List<Article> articles) {
-        this.articles = articles;
+    public void setArticleEntities(List<ArticleEntity> articleEntities) {
+        this.articleEntities = articleEntities;
     }
 }
 
