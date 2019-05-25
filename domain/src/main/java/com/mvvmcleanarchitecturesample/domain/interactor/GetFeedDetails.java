@@ -27,7 +27,7 @@ public class GetFeedDetails extends UseCase<Feed, GetFeedDetails.Params> {
 
     @Override
     Observable<Feed> buildUseCaseObservable(Params params) {
-//    Preconditions.checkNotNull(params);
+//        Preconditions.checkNotNull(params);
         return this.feedRepository.feed(params.feedId);
     }
 

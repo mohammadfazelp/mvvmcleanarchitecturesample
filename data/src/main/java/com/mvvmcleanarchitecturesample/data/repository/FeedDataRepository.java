@@ -35,12 +35,12 @@ public class FeedDataRepository implements IFeedRepository {
         this.feedEntityDataMapper = feedEntityDataMapper;
     }
 
-    @Override
-    public Observable<List<Feed>> feeds() {
-        //we always get all feeds from the cloud
-        final FeedDataStore feedDataStore = this.feedDataStoreFactory.createCloudDataStore();
-        return feedDataStore.feedEntityList().map(this.feedEntityDataMapper::transform);
-    }
+//    @Override
+//    public Observable<List<Feed>> feeds() {
+//        //we always get all feeds from the cloud
+//        final FeedDataStore feedDataStore = this.feedDataStoreFactory.createCloudDataStore();
+//        return feedDataStore.feedEntityList().map(this.feedEntityDataMapper::transform);
+//    }
 
     @Override
     public Observable<Feed> feed(int feedId) {

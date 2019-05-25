@@ -7,13 +7,17 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.mvvmcleanarchitecturesample.App;
+import com.example.mvvmcleanarchitecturesample.R;
 import com.example.mvvmcleanarchitecturesample.di.components.ApplicationComponent;
 import com.example.mvvmcleanarchitecturesample.di.modules.ActivityModule;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 /**
  * Base {@link android.app.Activity} class for every Activity in this application.
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity {
 
 //    @Inject
 //    Navigator navigator;
@@ -27,7 +31,7 @@ public abstract class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.getApplicationComponent().inject(this);
         if (getLayoutId() != 0) {
-            setContentView(getLayoutId());
+            DataBindingUtil.setContentView(this, getLayoutId());
         }
         doLogic();
     }

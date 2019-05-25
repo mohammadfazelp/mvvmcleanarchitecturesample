@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.mvvmcleanarchitecturesample.data.cache.FeedCache;
 import com.mvvmcleanarchitecturesample.data.entity.mapper.FeedEntityJsonMapper;
-import com.mvvmcleanarchitecturesample.data.net.IRestApi;
-import com.mvvmcleanarchitecturesample.data.net.RestApi;
+import com.mvvmcleanarchitecturesample.data.api.IRestApi;
+import com.mvvmcleanarchitecturesample.data.api.RestApi;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -48,6 +48,6 @@ public class FeedDataStoreFactory {
     public FeedDataStore createCloudDataStore() {
         final FeedEntityJsonMapper userEntityJsonMapper = new FeedEntityJsonMapper();
         final IRestApi restApi = new RestApi(this.context, userEntityJsonMapper);
-        return new CloudFeedDataStore(null, this.feedCache);
+        return new CloudFeedDataStore(restApi, this.feedCache);
     }
 }

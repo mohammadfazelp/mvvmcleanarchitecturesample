@@ -2,6 +2,9 @@ package com.example.mvvmcleanarchitecturesample.model;
 
 import java.io.Serializable;
 
+import androidx.recyclerview.widget.DiffUtil;
+import io.reactivex.annotations.NonNull;
+
 public class ArticleModel implements Serializable {
 
     private static int increment = 0;
@@ -87,17 +90,18 @@ public class ArticleModel implements Serializable {
     }
 
 
-//    public static DiffUtil.ItemCallback<ArticleEntity> DIFF_CALLBACK = new DiffUtil.ItemCallback<ArticleEntity>() {
-//        @Override
-//        public boolean areItemsTheSame(@NonNull ArticleEntity oldItem, @NonNull ArticleEntity newItem) {
-//            return oldItem.id == newItem.id;
-//        }
-//
-//        @Override
-//        public boolean areContentsTheSame(@NonNull ArticleEntity oldItem, @NonNull ArticleEntity newItem) {
-//            return oldItem.equals(newItem);
-//        }
-//    };
+    public static DiffUtil.ItemCallback<ArticleModel> DIFF_CALLBACK = new DiffUtil.ItemCallback<ArticleModel>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull ArticleModel oldItem, @NonNull ArticleModel newItem) {
+            return oldItem.id == newItem.id;
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull ArticleModel oldItem, @NonNull ArticleModel newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
+
 
     @Override
     public boolean equals(Object obj) {

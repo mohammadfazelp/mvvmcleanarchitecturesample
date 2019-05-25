@@ -13,12 +13,12 @@ public interface IFeedRepository {
     /**
      * Get an {@link Observable} which will emit a List of {@link Feed}.
      */
-    Observable<List<Feed>> feeds();
+//    Observable<List<Feed>> feeds();
 
     /**
      * Get an {@link Observable} which will emit a {@link Feed}.
      *
-     * @param userId The user id used to retrieve user data.
+     * @param id The id used to retrieve data.
      */
-    Observable<Feed> feed(final int userId);
+    Observable<Feed> feed(final int id);
 }

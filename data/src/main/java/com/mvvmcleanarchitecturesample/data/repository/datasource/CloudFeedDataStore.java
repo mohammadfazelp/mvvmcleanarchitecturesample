@@ -2,7 +2,7 @@ package com.mvvmcleanarchitecturesample.data.repository.datasource;
 
 import com.mvvmcleanarchitecturesample.data.cache.FeedCache;
 import com.mvvmcleanarchitecturesample.data.entity.FeedEntity;
-import com.mvvmcleanarchitecturesample.data.net.IRestApi;
+import com.mvvmcleanarchitecturesample.data.api.IRestApi;
 
 import java.util.List;
 
@@ -34,8 +34,6 @@ class CloudFeedDataStore implements FeedDataStore {
 
     @Override
     public Observable<FeedEntity> feedEntityDetails(final int feedId) {
-//    return this.restApi.feedEntityById(feedId).doOnNext(CloudFeedDataStore.this.feedCache::put);
-        return null;
+        return this.restApi.feedEntityById(feedId).doOnNext(CloudFeedDataStore.this.feedCache::put);
     }
-
 }

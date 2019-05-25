@@ -1,9 +1,8 @@
-package com.example.mvvmcleanarchitecturesample.utils.mapper;
+package com.example.mvvmcleanarchitecturesample.mapper;
 
 
 import com.example.mvvmcleanarchitecturesample.di.PerActivity;
 import com.example.mvvmcleanarchitecturesample.model.FeedModel;
-import com.mvvmcleanarchitecturesample.data.entity.ArticleEntity;
 import com.mvvmcleanarchitecturesample.domain.model.Article;
 import com.mvvmcleanarchitecturesample.domain.model.Feed;
 import com.mvvmcleanarchitecturesample.domain.model.Source;

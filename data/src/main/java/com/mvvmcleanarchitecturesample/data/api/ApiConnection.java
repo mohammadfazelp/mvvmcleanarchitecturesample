@@ -1,4 +1,4 @@
-package com.mvvmcleanarchitecturesample.data.net;
+package com.mvvmcleanarchitecturesample.data.api;
 
 
 import java.io.IOException;

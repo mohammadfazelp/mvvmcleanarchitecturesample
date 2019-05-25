@@ -1,4 +1,4 @@
-//package com.example.mvvmcleanarchitecturesample.utils.navigation;
+//package com.example.mvvmcleanarchitecturesample.navigation;
 //
 //import android.content.Context;
 //import android.content.Intent;

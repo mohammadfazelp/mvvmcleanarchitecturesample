@@ -1,4 +1,4 @@
-package com.example.mvvmcleanarchitecturesample.utils.exception;
+package com.example.mvvmcleanarchitecturesample.exception;
 
 import android.content.Context;
 

@@ -11,5 +11,5 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class, FeedModule.class})
 public interface FeedComponent {
 
-    void inject(FeedActivity feedActivity);
+//    void inject(FeedActivity feedActivity);
 }
